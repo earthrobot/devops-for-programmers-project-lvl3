@@ -1,0 +1,2 @@
+do_token: "{{ do_token_vault }}"
+pub_key: ~/.ssh/id_rsa_do.pub
