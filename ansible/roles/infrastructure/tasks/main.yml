@@ -1,0 +1,22 @@
+- name: Apply terraform infrastructure (webservers, loadbalancer)
+  community.general.terraform:
+    project_path: "{{ terraform_dir }}"
+    variables:
+      do_token: "{{ do_token }}"
+      pvt_key: "{{ pvt_key }}"
+    force_init: yes
+    state: "{{ infra_state }}"
+  register: infra
+
+- name: Generate hosts
+  template:
+    src: templates/hosts.j2
+    dest: hosts
+    mode: "0644"
+  when: infra_state == "present"
+
+- name: Set ssh key
+  ansible.posix.authorized_key:
+    user: root
+    key: "{{ lookup('file', pub_key) }}"
+    state: present

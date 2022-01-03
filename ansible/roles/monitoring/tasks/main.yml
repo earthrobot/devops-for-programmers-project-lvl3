@@ -1,0 +1,3 @@
+- name: Run datadog
+  include_role:
+    name: datadog.datadog

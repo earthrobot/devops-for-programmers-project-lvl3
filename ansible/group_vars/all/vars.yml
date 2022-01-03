@@ -1,0 +1,14 @@
+do_token: "{{ do_token_vault }}"
+pub_key: ~/.ssh/id_rsa_do.pub
+docker_hub_login: earthrobot
+docker_hub_password: "{{ docker_hub_password_vault }}"
+datadog_api_key: "{{ dd_key_vault  }}"
+datadog_site: "datadoghq.com"
+datadog_checks:
+  http_check:
+    init_config:
+    instances:
+      - name: Application health check status
+        url: "http://localhost:8080"
+        timeout: 5
+        method: GET

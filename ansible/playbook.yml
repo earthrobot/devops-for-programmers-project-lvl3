@@ -1,0 +1,25 @@
+- name: Setup Infrastructure
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    terraform_dir: "{{ playbook_dir }}/../terraform"
+  roles:
+    - infrastructure
+  tags: infrastructure
+
+- name: Deploy
+  hosts: all
+  gather_facts: yes
+  become: yes
+  roles:
+    - deploy
+  tags: deploy
+
+- name: Monitoring
+  hosts: all
+  gather_facts: yes
+  become: yes
+  roles:
+    - monitoring
+  tags: monitoring

@@ -1,0 +1,6 @@
+collections:
+  - name: community.docker
+  - name: community.general
+  - ansible.posix
+roles:
+  - name: datadog.datadog
