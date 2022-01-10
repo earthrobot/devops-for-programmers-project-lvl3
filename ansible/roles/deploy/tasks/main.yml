@@ -7,11 +7,6 @@
   pip:
     name: docker
 
-- name: Log into DockerHub
-  community.docker.docker_login:
-    username: "earthrobot"
-    password: "{{ docker_hub_password }}"
-
 - name: Run container
   community.docker.docker_container:
     name: devops-example-app
