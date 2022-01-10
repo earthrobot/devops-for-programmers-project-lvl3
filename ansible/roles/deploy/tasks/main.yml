@@ -9,8 +9,8 @@
 
 - name: Log into DockerHub
   community.docker.docker_login:
-    username: '{{ docker_hub_login }}'
-    password: '{{ docker_hub_password }}'
+    username: "earthrobot"
+    password: "{{ docker_hub_password }}"
 
 - name: Run container
   community.docker.docker_container:
@@ -22,4 +22,4 @@
     container_default_behavior: no_defaults
     pull: yes
     env:
-      SERVER_MESSAGE: '{{ ansible_default_ipv4.address }}' 
+      SERVER_MESSAGE: "{{ ansible_default_ipv4.address }}"
