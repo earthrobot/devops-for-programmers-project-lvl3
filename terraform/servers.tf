@@ -1,6 +1,6 @@
 resource "digitalocean_vpc" "vpc" {
-  name     = "my-vpc"
-  region   = "ams3"
+  name   = "my-vpc"
+  region = "ams3"
 }
 
 resource "digitalocean_droplet" "webservers" {
@@ -9,7 +9,7 @@ resource "digitalocean_droplet" "webservers" {
   name               = "web-${count.index + 1}"
   region             = "ams3"
   size               = "s-1vcpu-1gb"
-  vpc_uuid = digitalocean_vpc.vpc.id
+  vpc_uuid           = digitalocean_vpc.vpc.id
   private_networking = true
 
   ssh_keys = [
@@ -18,8 +18,8 @@ resource "digitalocean_droplet" "webservers" {
 }
 
 resource "digitalocean_loadbalancer" "lb" {
-  name   = "loadbalancer"
-  region = "ams3"
+  name     = "loadbalancer"
+  region   = "ams3"
   vpc_uuid = digitalocean_vpc.vpc.id
 
   sticky_sessions {
