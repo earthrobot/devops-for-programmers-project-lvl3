@@ -1,9 +1,9 @@
-# terraform {
-#     backend "remote" {
-#         organization = "earth-company"
+terraform {
+    backend "remote" {
+        organization = "earth-company"
 
-#         workspaces {
-#             name = "earth-workspace"
-#         }
-#     }
-# }
+        workspaces {
+            name = "earth-workspace"
+        }
+    }
+}

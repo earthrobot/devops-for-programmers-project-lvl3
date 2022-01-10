@@ -1,12 +1,12 @@
-- name: Setup Infrastructure
-  hosts: localhost
-  connection: local
-  become: yes
-  vars:
-    terraform_dir: "{{ playbook_dir }}/../terraform"
-  roles:
-    - infrastructure
-  tags: infrastructure
+# - name: Setup Infrastructure
+#   hosts: localhost
+#   connection: local
+#   become: yes
+#   vars:
+#     terraform_dir: "{{ playbook_dir }}/../terraform"
+#   roles:
+#     - infrastructure
+#   tags: infrastructure
 
 - name: Deploy
   hosts: all
