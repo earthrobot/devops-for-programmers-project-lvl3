@@ -1,4 +1,4 @@
-datadog_api_key: "{{ dd_key_vault }}"
+datadog_api_key: "{{ vault_datadog_api_key }}"
 datadog_site: "datadoghq.com"
 datadog_checks:
   http_check:

@@ -5,7 +5,7 @@ install:
 	ansible-galaxy collection install -r ansible/requirements.yml
 
 infrastructure:
-	ansible-playbook -v --vault-password-file ansible/vault-password ansible/playbook.yml --tags "infrastructure"
+	ansible-playbook -v --vault-password-file ansible/vault-password ansible/playbook.yml --limit localhost -i ansible/inventory.ini --tags "infrastructure"
 	
 deploy:
 	ansible-playbook -i ansible/hosts -v --vault-password-file ansible/vault-password ansible/playbook.yml --tags "deploy"
