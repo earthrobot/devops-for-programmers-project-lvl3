@@ -1,6 +1,3 @@
-[localhost]
-localhost ansible_connection=local
-
 [webservers]
 {% for webserver in infra.outputs.webservers.value %}
 {{webserver.name}} ansible_host={{webserver.ipv4_address_public}} ansible_user=root
