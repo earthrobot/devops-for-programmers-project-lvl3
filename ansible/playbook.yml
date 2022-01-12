@@ -1,6 +1,5 @@
 - name: Setup Infrastructure
   hosts: localhost
-  connection: local
   become: yes
   vars:
     terraform_dir: "{{ playbook_dir }}/../terraform"
